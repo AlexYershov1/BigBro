@@ -78,7 +78,7 @@ class _ChatState extends State<Chat> {
                   .width,
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-                color: Color(0x54FFFFFF),
+                color: Color(0xFFFBC02D),
                 child: Row(
                   children: [
                     Expanded(
@@ -163,12 +163,12 @@ class MessageTile extends StatelessWidget {
           bottomRight: Radius.circular(23)),
             gradient: LinearGradient(
               colors: sendByMe ? [
-                const Color(0xff007EF4),
-                const Color(0xff2A75BC)
+                const Color(0xffFFEB3B),
+                const Color(0xffFBC02D)
               ]
                   : [
-                const Color(0x1AFFFFFF),
-                const Color(0x1AFFFFFF)
+                const Color(0xFFFFCA28),
+                const Color(0xFFFFA000)
               ],
             )
         ),

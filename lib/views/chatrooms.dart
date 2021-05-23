@@ -59,10 +59,7 @@ class _ChatRoomState extends State<ChatRoom> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Image.asset(
-          "assets/images/logo.png",
-          height: 40,
-        ),
+        title: Text('BigBro'),
         elevation: 0.0,
         centerTitle: false,
         actions: [
@@ -78,8 +75,13 @@ class _ChatRoomState extends State<ChatRoom> {
           )
         ],
       ),
-      body: Container(
-        child: chatRoomsList(),
+      body: Column(
+        children: [
+        Container(
+          child: chatRoomsList(),
+        ),
+
+        ]
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.search),

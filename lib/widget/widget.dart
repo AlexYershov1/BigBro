@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+
 Widget appBarMain(BuildContext context) {
   return AppBar(
+    centerTitle: true,
     title: Text(
       'BigBro',
       style: TextStyle(
@@ -9,7 +11,6 @@ Widget appBarMain(BuildContext context) {
       ),
     ),
     elevation: 0.0,
-    centerTitle: false,
   );
 }
 
@@ -28,5 +29,5 @@ TextStyle simpleTextStyle() {
 }
 
 TextStyle biggerTextStyle() {
-  return TextStyle(color: Colors.white, fontSize: 17);
+  return TextStyle(color: Colors.white, fontSize: 30);
 }

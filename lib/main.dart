@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Color(0xFF80DEEA),
-        scaffoldBackgroundColor: Color(0xFFE8F5E9),
+        scaffoldBackgroundColor: Color(0xFFFFECB3),
         accentColor: Color(0xff007EF4),
         fontFamily: "OverpassRegular",
         visualDensity: VisualDensity.adaptivePlatformDensity,

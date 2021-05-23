@@ -1,5 +1,4 @@
 import 'package:chatapp/helper/constants.dart';
-import 'package:chatapp/models/user.dart';
 import 'package:chatapp/services/database.dart';
 import 'package:chatapp/views/chat.dart';
 import 'package:chatapp/widget/widget.dart';
@@ -156,7 +155,7 @@ class _SearchState extends State<Search> {
                       decoration: InputDecoration(
                         hintText: "search username ...",
                         hintStyle: TextStyle(
-                          color: Colors.white,
+                          color: Colors.blue,
                           fontSize: 16,
                         ),
                         border: InputBorder.none

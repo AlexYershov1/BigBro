@@ -1,9 +1,9 @@
 import 'package:chatapp/helper/helperfunctions.dart';
-import 'package:chatapp/helper/theme.dart';
 import 'package:chatapp/services/auth.dart';
 import 'package:chatapp/services/database.dart';
 import 'package:chatapp/views/chatrooms.dart';
 import 'package:chatapp/widget/widget.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SignUp extends StatefulWidget {
@@ -15,9 +15,7 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  String emailEditingController = 'aaa@kkkk.com';
-  String passwordEditingController ='1234567';
-  TextEditingController usernameEditingController = new TextEditingController();
+  TextEditingController usernameNickName = new TextEditingController();
 
   AuthService authService = new AuthService();
   DatabaseMethods databaseMethods = new DatabaseMethods();
@@ -32,22 +30,18 @@ class _SignUpState extends State<SignUp> {
       });
 
       await authService
-          .signUpWithEmailAndPassword(
-              emailEditingController, passwordEditingController)
+          .singInAnonimusly()
           .then((result) {
         if (result != null) {
           Map<String, String> userDataMap = {
-            "userName": usernameEditingController.text,
-            "userEmail": emailEditingController
+            "userNickName": usernameNickName.text
           };
 
           databaseMethods.addUserInfo(userDataMap);
 
           HelperFunctions.saveUserLoggedInSharedPreference(true);
           HelperFunctions.saveUserNameSharedPreference(
-              usernameEditingController.text);
-          HelperFunctions.saveUserEmailSharedPreference(
-              emailEditingController);
+              usernameNickName.text);
 
           Navigator.pushReplacement(
               context, MaterialPageRoute(builder: (context) => ChatRoom()));
@@ -74,11 +68,12 @@ class _SignUpState extends State<SignUp> {
                   Form(
                     key: formKey,
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         TextFormField(
-                          style: TextStyle(color: Color(0xFF01579B)),
-                          controller: usernameEditingController,
+                          style: TextStyle(color: Color(0xFF01579B), fontSize: 20),
+                          controller: usernameNickName,
                           validator: (val) {
                             return val.isEmpty || val.length < 3
                                 ? "The nickname must contain 3+ characters"
@@ -100,23 +95,27 @@ class _SignUpState extends State<SignUp> {
                     child: Container(
                       padding: EdgeInsets.symmetric(vertical: 16),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(15),
+                            topRight: Radius.circular(30),
+                            bottomRight: Radius.circular(15)
+                          ),
                           gradient: LinearGradient(
                             colors: [
                               const Color(0xFF4DD0E1),
-                              const Color(0xFF0097A7)
+                              const Color(0xFF00BCD4)
                             ],
                           )),
                       width: MediaQuery.of(context).size.width,
                       child: Text(
-                        "Let's Get Started",
+                        "Let's Get Started!",
                         style: biggerTextStyle(),
                         textAlign: TextAlign.center,
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 76,
+                    height: 50,
                   )
                 ],
               ),
